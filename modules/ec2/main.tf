@@ -3,7 +3,7 @@ data "aws_ssm_parameter" "amazonlinux_2023" {
 }
 
 resource "aws_instance" "ec2" {
-  ami           = "ami-0d52744d6551d851e"
+  ami           = data.aws_ssm_parameter.amazonlinux_2023.value
   instance_type = var.instance_type
 
   subnet_id = var.subnet_id
