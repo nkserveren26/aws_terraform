@@ -9,8 +9,18 @@ data "aws_ssm_parameter" "ubuntu" {
 }
 
 # Windows Server 2022
-data "aws_ssm_parameter" "windows" {
+data "aws_ssm_parameter" "windows_server_2022" {
   name = "/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base"
+}
+
+locals {
+  ami_map = {
+    amazonlinux2023 = data.aws_ssm_parameter.al2023.value
+    ubuntu          = data.aws_ssm_parameter.ubuntu.value
+    windowsserver2022         = data.aws_ssm_parameter.windows_server_2022.value
+  }
+
+  selected_ami = local.ami_map[var.os_type]
 }
 
 resource "aws_instance" "ec2" {
