@@ -15,7 +15,7 @@ data "aws_ssm_parameter" "windows_server_2022" {
 
 locals {
   ami_map = {
-    amazonlinux2023 = data.aws_ssm_parameter.al2023.value
+    amazonlinux2023 = data.aws_ssm_parameter.amazonlinux_2023.value
     ubuntu          = data.aws_ssm_parameter.ubuntu.value
     windowsserver2022         = data.aws_ssm_parameter.windows_server_2022.value
   }
@@ -24,7 +24,7 @@ locals {
 }
 
 resource "aws_instance" "ec2" {
-  ami           = data.aws_ssm_parameter.amazonlinux_2023.value
+  ami           = local.selected_ami
   instance_type = var.instance_type
 
   subnet_id = var.subnet_id
