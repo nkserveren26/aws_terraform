@@ -7,7 +7,7 @@ variable "instance_type" {
 
   validation {
     condition = (
-      var.os_type != "windows" ||
+      var.os_type != "windowsserver2022" ||
       contains([
         "t3.small",
         "t3.medium",
@@ -31,7 +31,7 @@ variable "os_type" {
     condition = contains([
       "amazonlinux2023",
       "ubuntu",
-      "windows"
+      "windowsserver2022"
     ], var.os_type)
 
     error_message = "Invalid OS type."
