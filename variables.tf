@@ -3,7 +3,20 @@ variable "aws_region" {
 }
 
 variable "instance_type" {
-  default = "t3.micro"
+  type = string
+
+  validation {
+    condition = (
+      var.os_type != "windows" ||
+      contains([
+        "t3.small",
+        "t3.medium",
+        "t3.large"
+      ], var.instance_type)
+    )
+
+    error_message = "Windowsの場合は t3.small 以上を指定してください"
+  }
 }
 
 variable "instance_name" {
