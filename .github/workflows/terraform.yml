@@ -20,7 +20,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var="os_type=windowsserver2022" -var="instance_name=test-ec2-tf" -var="instance_type=t3.micro" -var
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="os_type=windowsserver2022" -var="instance_name=test-ec2-tf" -var="instance_type=t3.micro"
