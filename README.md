@@ -33,3 +33,7 @@
     ]
 }
 ```
+
+- 付与する権限
+  - EC2FullAccess
+  - VPCFullAccess
