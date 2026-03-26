@@ -37,3 +37,5 @@
 - 付与する権限
   - EC2FullAccess
   - VPCFullAccess
+
+### Github Actions の設定
