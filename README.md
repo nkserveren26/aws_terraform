@@ -34,8 +34,6 @@
 }
 ```
 
-- 付与する権限
-  - EC2FullAccess
-  - VPCFullAccess
+実行操作に応じて、IAMロールに付与する権限を設定する。
 
 ### Github Actions の設定
