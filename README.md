@@ -39,4 +39,20 @@
 ### Github Actions の設定
 #### Github Actions でやること
 - Terraform のセットアップ
+```yaml
+- name: Setup Terraform
+  uses: hashicorp/setup-terraform@v3
+```
+
 - 作成した IAM ロールで認証
+  - `aws-actions/configure-aws-credentials@v1` を使用する。
+  - with 内で以下を設定
+    - aws-region：対象リージョンを指定
+    - role-to-assume：使用する IAM ロールを指定
+```yaml
+- name: Authenticate IAM Role
+  uses: aws-actions/configure-aws-credentials@v1
+  with:
+    aws-region: 'ap-northeast-1'
+    role-to-assume: 'arn:aws:iam::819628840011:role/test-role-for-github'
+```
