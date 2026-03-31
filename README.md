@@ -56,3 +56,9 @@
     aws-region: 'ap-northeast-1'
     role-to-assume: 'arn:aws:iam::xxxxxxxxx:role/<IAMロール名>'
 ```
+
+- `terraform init` コマンド実行
+```yaml
+- name: Terraform Init
+  run: terraform init
+```
