@@ -62,3 +62,7 @@
 - name: Terraform Init
   run: terraform init
 ```
+
+- `terraform plan` コマンド実行
+  - terraform apply コマンドの Dry Run 的なやつ。
+  - このコマンドを実行することで構文エラーや実際に作成されるリソース一覧を取得できる。
