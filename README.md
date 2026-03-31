@@ -54,5 +54,5 @@
   uses: aws-actions/configure-aws-credentials@v1
   with:
     aws-region: 'ap-northeast-1'
-    role-to-assume: 'arn:aws:iam::819628840011:role/test-role-for-github'
+    role-to-assume: 'arn:aws:iam::xxxxxxxxx:role/<IAMロール名>'
 ```
